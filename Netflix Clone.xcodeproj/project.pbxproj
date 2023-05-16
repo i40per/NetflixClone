@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D51855E52A13CA20003E24C6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51855E42A13CA20003E24C6 /* Extensions.swift */; };
+		D51855E72A13DA9E003E24C6 /* Tv.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51855E62A13DA9E003E24C6 /* Tv.swift */; };
 		D52DF8EB2A1216D800000C28 /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52DF8EA2A1216D800000C28 /* HeroHeaderUIView.swift */; };
 		D5425D2E2A11094600EF9271 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5425D2D2A11094600EF9271 /* AppDelegate.swift */; };
 		D5425D302A11094600EF9271 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5425D2F2A11094600EF9271 /* SceneDelegate.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D51855E42A13CA20003E24C6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D51855E62A13DA9E003E24C6 /* Tv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tv.swift; sourceTree = "<group>"; };
 		D52DF8EA2A1216D800000C28 /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
 		D5425D2A2A11094600EF9271 /* Netflix Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Netflix Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5425D2D2A11094600EF9271 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				D579CA7B2A139F72005229AD /* Movie.swift */,
+				D51855E62A13DA9E003E24C6 /* Tv.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 		D5887BEC2A1150CC0008130F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D51855E42A13CA20003E24C6 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -213,9 +219,11 @@
 				D52DF8EB2A1216D800000C28 /* HeroHeaderUIView.swift in Sources */,
 				D5425D492A11118D00EF9271 /* DownloadsViewController.swift in Sources */,
 				D5425D2E2A11094600EF9271 /* AppDelegate.swift in Sources */,
+				D51855E52A13CA20003E24C6 /* Extensions.swift in Sources */,
 				D5425D302A11094600EF9271 /* SceneDelegate.swift in Sources */,
 				D5425D452A11110D00EF9271 /* UpcomingViewController.swift in Sources */,
 				D579CA7C2A139F72005229AD /* Movie.swift in Sources */,
+				D51855E72A13DA9E003E24C6 /* Tv.swift in Sources */,
 				D5425D432A1110B200EF9271 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
