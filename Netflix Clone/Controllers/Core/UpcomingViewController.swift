@@ -16,7 +16,8 @@ class UpcomingViewController: UIViewController {
         table.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
         return table
     }()
-
+    
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -24,14 +25,15 @@ class UpcomingViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.tintColor = .white
-        
-        view.addSubview(upcomingTable)
         upcomingTable.delegate = self
         upcomingTable.dataSource = self
+        
+        view.addSubview(upcomingTable)
         
         fetchUpcoming()
     }
     
+    //MARK: - viewDidLayoutSubviews
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         upcomingTable.frame = view.bounds
@@ -52,6 +54,7 @@ class UpcomingViewController: UIViewController {
     }
 }
 
+//MARK: - UITableViewDelegate, UITableViewDataSource
 extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titles.count

@@ -26,6 +26,8 @@ class TitleCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError()
     }
+    
+    //MARK: - layoutSubviews
     override func layoutSubviews() {
         super.layoutSubviews()
         posterImageView.frame = contentView.bounds

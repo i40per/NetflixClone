@@ -23,20 +23,20 @@ class SearchViewController: UIViewController {
         controller.searchBar.searchBarStyle = .minimal
         return controller
     }()
-
+    
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Search"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
-
         view.backgroundColor = .systemBackground
-        
-        view.addSubview(discoverTable)
         discoverTable.delegate = self
         discoverTable.dataSource = self
         navigationItem.searchController = searchController
         navigationController?.navigationBar.tintColor = .white
+        
+        view.addSubview(discoverTable)
         
         fetchDiscoverMovies()
         
@@ -57,12 +57,14 @@ class SearchViewController: UIViewController {
         }
     }
     
+    //MARK: - viewDidLayoutSubviews
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         discoverTable.frame = view.bounds
     }
 }
 
+//MARK: - UITableViewDelegate, UITableViewDataSource
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titles.count
@@ -108,6 +110,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+//MARK: - UISearchResultsUpdating, SearchResultsViewControllerDelegate
 extension SearchViewController: UISearchResultsUpdating, SearchResultsViewControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
@@ -133,8 +136,8 @@ extension SearchViewController: UISearchResultsUpdating, SearchResultsViewContro
         }
     }
     
+    //MARK: - searchResultsViewControllerDidTapItem
     func searchResultsViewControllerDidTapItem(_ viewModel: TitlePreviewViewModel) {
-        
         DispatchQueue.main.async { [weak self] in
             let vc = TitlePreviewViewController()
             vc.configure(with: viewModel)

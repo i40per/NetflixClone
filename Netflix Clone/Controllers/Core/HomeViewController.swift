@@ -27,22 +27,20 @@ class HomeViewController: UIViewController {
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
         return table
     }()
-
+    
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = .systemBackground
         view.addSubview(homeFeedTable)
-        
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
         
         configureNavbar()
+        configureHeroHeaderView()
         
         headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 500))
         homeFeedTable.tableHeaderView = headerView
-        
-        configureHeroHeaderView()
     }
     
     private func configureHeroHeaderView() {
@@ -71,14 +69,15 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
     }
     
+    //MARK: - viewDidLayoutSubviews
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         homeFeedTable.frame = view.bounds
     }
 }
 
+//MARK: - UITableViewDelegate, UITableViewDataSource
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTitles.count
     }
@@ -148,7 +147,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             return UITableViewCell()
         }
-        
         return cell
     }
     
@@ -180,6 +178,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+//MARK: - CollectionViewTableViewCellDelegate
 extension HomeViewController: CollectionViewTableViewCellDelegate {
     func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
         DispatchQueue.main.async { [weak self] in

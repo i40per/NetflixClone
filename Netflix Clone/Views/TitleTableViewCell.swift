@@ -21,6 +21,7 @@ class TitleTableViewCell: UITableViewCell {
     
     private let titleLabel: UILabel = {
        let label = UILabel()
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -43,6 +44,7 @@ class TitleTableViewCell: UITableViewCell {
         applyConstraints()
     }
     
+    //MARK: - applyConstraints
     private func applyConstraints() {
         let titlesPosterUIImageViewConstraints = [
             titlesPosterUIImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -53,6 +55,7 @@ class TitleTableViewCell: UITableViewCell {
         
         let titleLabelConstraints = [
             titleLabel.leadingAnchor.constraint(equalTo: titlesPosterUIImageView.trailingAnchor, constant: 20),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -50),
             titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ]
         

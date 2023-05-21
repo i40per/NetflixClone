@@ -57,7 +57,7 @@ class CollectionViewTableViewCell: UITableViewCell {
         DataPersistenceManager.shared.downloadTitleWith(model: titles[indexPath.row]) { result in
             switch result {
             case .success():
-                print("Downloaded to Database")
+                NotificationCenter.default.post(name: NSNotification.Name("downloaded"), object: nil)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -65,6 +65,7 @@ class CollectionViewTableViewCell: UITableViewCell {
     }
 }
 
+//MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -76,7 +77,6 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
             return UICollectionViewCell()
         }
         cell.configure(with: model)
-        
         return cell
     }
     
@@ -115,7 +115,7 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         let config = UIContextMenuConfiguration(
             identifier: nil,
-            previewProvider: nil) {[weak self] _ in
+            previewProvider: nil) { [weak self] _ in
                 let downloadAction = UIAction(title: "Download", subtitle: nil, image: nil, identifier: nil, discoverabilityTitle: nil, state: .off) { _ in
                     self?.downloadTitleAt(indexPath: indexPath)
                 }

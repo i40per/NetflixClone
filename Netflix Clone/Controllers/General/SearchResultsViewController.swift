@@ -26,9 +26,9 @@ class SearchResultsViewController: UIViewController {
         return collectionView
     }()
     
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .systemBackground
         view.addSubview(searchResultsCollectionView)
         
@@ -36,12 +36,14 @@ class SearchResultsViewController: UIViewController {
         searchResultsCollectionView.dataSource = self
     }
     
+    //MARK: - viewDidLayoutSubviews
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         searchResultsCollectionView.frame = view.bounds
     }
 }
 
+//MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension SearchResultsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return titles.count
@@ -51,7 +53,6 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath) as? TitleCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
         let title = titles[indexPath.row]
         cell.configure(with: title.poster_path ?? "")
         return cell
